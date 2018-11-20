@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import MobileScreen from './components/MobileScreen/MobileScreen.js'
+import MobileScreen from './components/MobileScreen.js'
 
 const AppDiv = styled.div`
     text-align: center;
