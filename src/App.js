@@ -4,13 +4,16 @@ import MobileScreen from './components/MobileScreen.js'
 
 const AppDiv = styled.div`
     text-align: center;
+    border: 1px solid #858585;
+    width: 320px;
+    height: 550px;
+    margin: auto;
 `
 
 class App extends Component {
     render() {
         return (
             <AppDiv>
-                <h1>I'm a mobile phone</h1>
                 <MobileScreen />
             </AppDiv>
         )
