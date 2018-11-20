@@ -8,6 +8,7 @@ const Container = styled.div`
     grid-auto-flow: column;
     grid-auto-columns: 100%;
     transform: translateX(${props => props.position}px);
+    transition: all 0.5s;
 `
 
 const mail = Data.mail.map(letter => (
