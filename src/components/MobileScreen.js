@@ -4,31 +4,43 @@ import MailCard from './MailCard'
 import Data from '../mockData.json'
 
 const Container = styled.div`
-    overflow: scroll;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
+    transform: translateX(${props => props.position}px);
 `
 
 const mail = Data.mail.map(letter => (
     <MailCard data={letter} key={letter.body} />
 ))
-
 class MobileScreen extends Component {
+    state = {
+        isOpen: false,
+        posX: 0
+    }
+
     handleClick = event => {
         event.clientY > document.getElementById('root').clientHeight / 2
             ? this.openLetter()
             : event.clientX > document.getElementById('root').clientWidth / 2
-                ? this.swipeRight()
-                : this.swipeLeft()
+            ? this.swipeRight()
+            : this.swipeLeft()
     }
 
     swipeRight = () => {
-        console.log('right')
+        if (document.getElementById('container').scrollWidth + this.state.posX - 320 > 0) {
+            this.setState(prevState => ({
+                posX: prevState.posX - 320
+            }))
+        }
     }
 
     swipeLeft = () => {
-        console.log('left')
+        if (this.state.posX < 0) {
+            this.setState(prevState => ({
+                posX: prevState.posX + 320
+            }))
+        }
     }
 
     openLetter = () => {
@@ -39,7 +51,14 @@ class MobileScreen extends Component {
         return (
             <Fragment>
                 <h1>Sorta view-indicators</h1>
-                <Container onClick={this.handleClick}>{mail}</Container>
+                <Container
+                    id="container"
+                    onClick={this.handleClick}
+                    position={this.state.posX}
+                    fullScreen={this.state.isOpen}
+                >
+                    {mail}
+                </Container>
             </Fragment>
         )
     }
