@@ -1,3 +1,3 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-A Doggo Swiper to practice animations
+A Stories Swiper to practice animations
