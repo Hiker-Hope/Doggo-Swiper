@@ -3,16 +3,29 @@ import styled from 'styled-components'
 
 const LetterCard = styled.div`
     width: 100%;
+
+    & * {
+        margin: 0;
+        padding: 16px 12px;
+    }
 `
 
-const Author = styled.h4`
+const EmailAuthor = styled.h3`
+    text-align: left;
 `
 
+const EmailAddress = styled.h4`
+    text-align: left;
+`
+const EmailBody = styled.p`
+`
 const MailCard = props => {
-    const {author} = props.data
+    const { author, address, body } = props.data
     return (
         <LetterCard>
-            <Author>{author}</Author>
+            <EmailAuthor>From: {author}</EmailAuthor>
+            <EmailAddress>Email: {address} </EmailAddress>
+            <EmailBody>{body}</EmailBody>
         </LetterCard>
     )
 }
