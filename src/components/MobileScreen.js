@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import DoggoCard from './DoggoCard'
 
 const Container = styled.div`
 width: 320px;
@@ -11,9 +12,14 @@ margin: auto;
         box-shadow: 2px 2px 6px 0 #333333;
     }
 `
+const doggos = ['doggo1','doggo2','doggo3','doggo4']
+
+const doggoCards = doggos.map(doggo => <DoggoCard src={doggo}/>)
 
 const MobileScreen = () => {
-    return <Container />
+    return <Container>
+        {doggoCards}
+    </Container>
 }
 
 export default MobileScreen
