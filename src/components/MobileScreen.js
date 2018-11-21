@@ -7,11 +7,9 @@ import Data from '../mockData.json'
 const indicator = keyframes`
     0% {
         background-position: right bottom;
-
     }
     100% {
         background-position: left bottom;
-
     }
 `
 const LetterContainer = styled.div`
