@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Text-Stories-Swiper/precache-manifest.4787123c785268b7328c92047cef97ff.js"
+  "/Text-Stories-Swiper/precache-manifest.5b192bb7d66f939c4d8cf5b54e532b7f.js"
 );
 
 workbox.clientsClaim();
