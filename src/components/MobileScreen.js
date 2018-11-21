@@ -14,10 +14,10 @@ const LetterContainer = styled.div`
 `
 
 const IndicatorContainer = styled.div`
-margin: 0 10px;
+    margin: 10px;
     display: flex;
-    align-items: stretch;`
-
+    align-items: stretch;
+`
 
 const MobileScreen = props => {
     const mail = Data.mail.map(letter => (
@@ -26,16 +26,13 @@ const MobileScreen = props => {
             key={letter.body}
             scrollable={props.scrollable}
         />
-
-        ))
-            const indicators = Data.mail.map(letter => (
-                <TimeIntervalItem key={letter.author} />
-            ))
+    ))
+    const indicators = Data.mail.map(letter => (
+        <TimeIntervalItem key={letter.author} />
+    ))
     return (
         <Fragment>
-            <IndicatorContainer>
-                {indicators}
-            </IndicatorContainer>
+            <IndicatorContainer>{indicators}</IndicatorContainer>
             <LetterContainer id="container" position={props.position}>
                 {mail}
             </LetterContainer>
