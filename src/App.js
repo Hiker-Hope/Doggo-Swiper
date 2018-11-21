@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MobileScreen from './components/MobileScreen.js'
 
 const AppDiv = styled.div`
-    overflow: hidden;
+    overflow-x: hidden;
     text-align: center;
     border: 1px solid #858585;
     width: 320px;
@@ -12,10 +12,58 @@ const AppDiv = styled.div`
 `
 
 class App extends Component {
+    state = {
+        isOpen: false,
+        posX: 0
+    }
+
+    handleClick = event => {
+        event.clientY > document.getElementById('root').clientHeight / 2
+            ? this.openLetter()
+            : event.clientX > document.getElementById('root').clientWidth / 2
+            ? this.swipeRight()
+            : this.swipeLeft()
+    }
+
+    swipeRight = () => {
+        if (
+            document.getElementById('container').scrollWidth +
+                this.state.posX -
+                320 >
+            0
+        ) {
+            this.setState(prevState => ({
+                posX: prevState.posX - 320,
+                isOpen: false
+            }))
+        }
+    }
+
+    swipeLeft = () => {
+        if (this.state.posX < 0) {
+            this.setState(prevState => ({
+                posX: prevState.posX + 320,
+                isOpen: false
+            }))
+        }
+    }
+
+    openLetter = () => {
+        this.setState(prevState => ({
+            isOpen: !prevState.isOpen
+        }))
+    }
     render() {
         return (
-            <AppDiv>
-                <MobileScreen />
+            <AppDiv
+                onClick={this.handleClick}
+                overflowY={this.state.isOpen ? 'scroll' : 'hidden'}
+            >
+                <MobileScreen
+                    position={this.state.posX}
+                    scrollable={this.state.isOpen}
+                    handler={this.openLetter}
+                />
             </AppDiv>
         )
     }
