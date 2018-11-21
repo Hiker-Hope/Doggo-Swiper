@@ -17,7 +17,14 @@ class App extends Component {
         posX: 0
     }
 
+    componentDidMount = () => {
+        this.autoSwipe = setInterval(() => this.swipeRight(), 2500)
+    }
+
     handleClick = event => {
+        clearInterval(this.autoSwipe)
+        this.autoSwipe = setInterval(() => this.swipeRight(), 2500)
+
         event.clientY > document.getElementById('root').clientHeight / 2
             ? this.openLetter()
             : event.clientX > document.getElementById('root').clientWidth / 2
@@ -52,7 +59,9 @@ class App extends Component {
         this.setState(prevState => ({
             isOpen: !prevState.isOpen
         }))
+        clearInterval(this.autoSwipe)
     }
+
     render() {
         return (
             <AppDiv
