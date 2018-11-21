@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import MailCard from './MailCard'
+import TimeIntervals from './TimeIntervals'
 import Data from '../mockData.json'
 
 const Container = styled.div`
@@ -24,6 +25,7 @@ const MobileScreen = props => {
     return (
         <Fragment>
             <h1>Sorta view-indicators</h1>
+            <TimeIntervals itemsCount={ Data.mail.length } />
             <Container id="container" position={props.position}>
                 {mail}
             </Container>

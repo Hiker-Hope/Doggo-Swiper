@@ -7,7 +7,7 @@ const AppDiv = styled.div`
     text-align: center;
     border: 1px solid #858585;
     width: 320px;
-    height: 550px;
+    height: 580px;
     margin: auto;
 `
 
