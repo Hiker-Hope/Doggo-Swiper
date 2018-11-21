@@ -3,21 +3,30 @@ import styled from 'styled-components'
 import TimeIntervalItem from './TimeIntervalItem'
 
 const Container = styled.div`
-    margin: 0;
+    margin: 0 10px;
     display: flex;
     align-items: stretch;
 `
 
-const TimeIntervals = props => {
-    const intervalsList = Array.from(Array(props.itemsCount), (e, i) => {
-        return <TimeIntervalItem key={ i }/>
-    })
+class TimeIntervals extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { animated: false };
+    }
 
-    return (
-        <Container>
-            { intervalsList }
-        </ Container>
-    )
+    componentDidMount() {
+        this.setState({ animated: true });
+    }
+
+    render(){
+        return (
+            <Container>
+                { Array.from(Array(this.props.itemsCount), (e, i) => {
+                    return <TimeIntervalItem key={ i } animated={this.state.animated}/>
+                }) }
+            </ Container>
+        )
+    }
 }
 
 export default TimeIntervals
