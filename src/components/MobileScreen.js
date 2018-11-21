@@ -1,16 +1,37 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import MailCard from './MailCard'
-import TimeIntervals from './TimeIntervals'
+import TimeIntervalItem from './TimeIntervalItem'
 import Data from '../mockData.json'
 
-const Container = styled.div`
+const indicator = keyframes`
+    0% {
+        background-position: right bottom;
+
+    }
+    100% {
+        background-position: left bottom;
+
+    }
+`
+const LetterContainer = styled.div`
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
-    grid-template-rows: 460px;
+    grid-template-rows: 530px;
     transform: translateX(${props => props.position}px);
     transition: all 0.5s;
+`
+
+const IndicatorContainer = styled.div`
+    margin: 10px;
+    display: flex;
+    align-items: stretch;
+    background: linear-gradient(to left, gray 50%, orange 50%);
+    background-size: 200% 100%;
+    animation-name: ${indicator};
+    animation-duration: 10s;
+    animation-timing-function: linear;
 `
 
 const MobileScreen = props => {
@@ -18,17 +39,20 @@ const MobileScreen = props => {
         <MailCard
             data={letter}
             key={letter.body}
-            onClick={props.scrollable ? props.handler : undefined}
             scrollable={props.scrollable}
         />
     ))
+
+    const indicators = Data.mail.map(letter => (
+        <TimeIntervalItem key={letter.author} />
+    ))
+
     return (
         <Fragment>
-            <h1>Sorta view-indicators</h1>
-            <TimeIntervals itemsCount={ Data.mail.length } />
-            <Container id="container" position={props.position}>
+            <IndicatorContainer>{indicators}</IndicatorContainer>
+            <LetterContainer id="container" position={props.position}>
                 {mail}
-            </Container>
+            </LetterContainer>
         </Fragment>
     )
 }
