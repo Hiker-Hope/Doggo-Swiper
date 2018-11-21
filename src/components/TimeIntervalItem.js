@@ -1,6 +1,5 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
-import './animation.css'
+import styled, { keyframes } from 'styled-components'
 
 const indicator = keyframes`
     0% {
