@@ -8,7 +8,7 @@ const LetterContainer = styled.div`
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
-    grid-template-rows: 460px;
+    grid-template-rows: 530px;
     transform: translateX(${props => props.position}px);
     transition: all 0.5s;
 `
