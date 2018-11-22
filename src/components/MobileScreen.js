@@ -22,6 +22,7 @@ const LetterContainer = styled.div`
     transition: all 0.5s;
 `
 
+
 const IndicatorContainer = styled.div`
     margin: 10px;
     display: flex;
