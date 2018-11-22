@@ -12,6 +12,7 @@ const indicator = keyframes`
         background-position: left bottom;
     }
 `
+
 const LetterContainer = styled.div`
     display: grid;
     grid-auto-flow: column;
@@ -31,6 +32,7 @@ const IndicatorContainer = styled.div`
     animation-duration: 10s;
     animation-timing-function: linear;
 `
+
 
 const MobileScreen = props => {
     const mail = Data.mail.map(letter => (
