@@ -34,6 +34,7 @@ const IndicatorContainer = styled.div`
 `
 
 
+
 const MobileScreen = props => {
     const mail = Data.mail.map(letter => (
         <MailCard
