@@ -33,6 +33,7 @@ const IndicatorContainer = styled.div`
     animation-timing-function: linear;
 `
 
+
 const MobileScreen = props => {
     const mail = Data.mail.map(letter => (
         <MailCard
