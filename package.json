@@ -17,7 +17,7 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "eject": "react-scripts eject",
-        "yes": "git config core.hooksPath .githooks"
+        "postinstall": "git config core.hooksPath .githooks"
     },
     "eslintConfig": {
         "extends": "react-app"
