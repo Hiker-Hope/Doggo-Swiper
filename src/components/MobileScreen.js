@@ -12,6 +12,7 @@ const indicator = keyframes`
         background-position: left bottom;
     }
 `
+
 const LetterContainer = styled.div`
     display: grid;
     grid-auto-flow: column;
